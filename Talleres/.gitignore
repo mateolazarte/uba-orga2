@@ -1,0 +1,5 @@
+# Object files
+*.o
+
+# GDB
+*.gdb_history

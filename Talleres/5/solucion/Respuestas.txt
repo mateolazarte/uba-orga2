@@ -1,0 +1,41 @@
+Checkpoint 1
+
+1.
+Protected mode: This is the native operating mode of the processor. It provides a rich set of architectural
+features, flexibility, high performance and backward compatibility to existing software base.
+Real-address mode: This operating mode provides the programming environment of the Intel 8086
+processor, with a few extensions (such as the ability to switch to protected or system management mode).
+
+2.
+El modo real solo puede acceder a 1MB de memoria y no tiene mecanismo de protección.
+El modo protegido en cambio permite acceder a más memoria y a una mayor protección del sistema.
+
+3.
+A segment descriptor is a data structure in a GDT or LDT that provides the processor with the size and location of
+a segment, as well as access control and status information.
+(ver en las diapositivas la explicacion de cada atributo)
+
+4.
+Ejecucion y lectura de codigo: 0xA
+
+6. La variable extern gdt_entry_t gdt[] contiene los descriptores de segmentos.
+La variable extern gdt_descriptor_t GDT_DESC indica dónde se encuentra el GDT y cuál es su tamaño.
+
+10. La instruccion LGDT carga el descriptor de gdt en el registro GDTR, que contiene la direccion base y el limite de la  GDT.
+La estructura que indica donde está almacenada la dirección desde la cual se carga la GDT y su tamaño es gdt_descriptor_t.
+
+----------------
+
+Checkpoint 2
+
+13. CR0 — Contains system control flags that control operating mode and states of the processor.
+Flag PE de CR0: Protection Enable (bit 0 of CR0) — Enables protected mode when set; enables real-address mode when
+clear. This flag does not enable paging directly. It only enables segment-level protection. To enable paging,
+both the PE and PG flags must be set.
+
+----------------
+
+Checkpoint 3
+
+21. screen_draw_box escribe en pantalla una area con el mismo caracter y atributo, desde y hasta las filas/columnas que se
+le indique. Cada caracter esta representado por la estrucutra "ca", que ocupa 2 bytes.
